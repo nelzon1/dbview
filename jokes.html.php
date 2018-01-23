@@ -17,7 +17,7 @@
         <input type="hidden" name="id" value="<?php
           echo $joke['id']; ?>"/>
           <input type="submit" value="Delete"/>
-      </p>
+      </p> 
     </blockquote>
     </form>
     <?php endforeach; ?>
