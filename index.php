@@ -41,7 +41,7 @@ if (!mysqli_set_charset($link,'utf8'))
 
 if (!mysqli_select_db($link,'ijdb'))
 {
-  $output = 'Unable to locate the api_db database.';
+  $output = 'Unable to locate the ijdb database.';
   include 'output.html.php';
   exit();
 }
@@ -86,7 +86,7 @@ $outout = 'Joke table successfully created.';
 include 'output.html.php';
 */
 
-$result = mysqli_query($link, 'SELECT joketext FROM joke');
+$result = mysqli_query($link, 'SELECT id, joketext FROM joke');
 
 if (!$result)
 {
@@ -97,7 +97,7 @@ if (!$result)
 
 while ($row = mysqli_fetch_array($result))
 {
-  $jokes[] = $row['joketext'];
+  $jokes[] = array( 'id' => $row['id'], 'text' => $row['joketext']);
 }
 
 /*
