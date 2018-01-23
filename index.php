@@ -64,6 +64,21 @@ if (isset($_POST['joketext']))
     exit();
 
 }
+
+if (isset($_GET['deletejoke']))
+{
+  $id = mysqli_real_escape_string($link,$_POST['id']);
+  $sql = "DELETE FROM joke WHERE id = '$id'";
+  if (!mysqli_query($link,$sql))
+  {
+    $error = 'Error deleting joke: ' . mysqli_error($link);
+    include 'error.html.php';
+    exit();
+  }
+  header('Location: .');
+  exit();
+}
+
 /*
 $output = 'Database connection established.';
 include 'output.html.php';

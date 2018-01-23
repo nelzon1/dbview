@@ -8,17 +8,22 @@
   </head>
   <body>
   <p><a href="?addjoke">Add your own joke</a></p>
-  <p>Here are all the jokes in the database:</p>
     <p>Here are all the jokes in the database:</p>
     <?php foreach ($jokes as $joke): ?>
-      <form action="?deletejoke" method="post">1
-      <blockquote><p>
-        <?php echo htmlspecialchars($joke, ENT_QUOTES, 2, 'UTF-8'); ?>
+      <form action="?deletejoke" method="post">
+      <blockquote>
+        <p>
+<<<<<<< Updated upstream
+        <?php echo htmlspecialchars($joke['text'], ENT_QUOTES,  'UTF-8'); ?>
+=======
+        <?php echo htmlspecialchars($joke['text'], ENT_QUOTES, 'UTF-8'); ?>
+>>>>>>> Stashed changes
         <input type="hidden" name="id" value="<?php
-          echo $joke['id']; ?>">3
-          <input type="submit" value="Delete"/>4
-      </p></blockquote>
-    </form>5
+          echo $joke['id']; ?>"/>
+          <input type="submit" value="Delete"/>
+      </p>
+    </blockquote>
+    </form>
     <?php endforeach; ?>
   </body>
 </html>
